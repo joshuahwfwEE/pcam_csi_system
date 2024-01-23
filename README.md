@@ -4,8 +4,9 @@ camera seetining is under 1920x1080x30fhz, csi rx receive raw10 data and transfe
 
 
 the purpose: to simulate a camera module through fpga to verify if max96717's csi controller can interpret the mipi data or not.  
-xilinx reference csitx_hs mode PPI interface waveform: 
+xilinx reference csitx_hs mode PPI interface waveform:   
 ![alt text](https://github.com/joshuahwfwEE/pcam_csi_system/blob/main/xilinxcsitxhsmode.png?raw=true)  
+
 csitx_hs mode PPI interface waveform:  
 ![alt text](https://github.com/joshuahwfwEE/pcam_csi_system/blob/main/csitx_hs_ila.png?raw=true)  
 
