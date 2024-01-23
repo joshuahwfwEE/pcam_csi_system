@@ -10,6 +10,14 @@ xilinx reference csitx_hs mode PPI interface waveform:
 csitx_hs mode PPI interface waveform:  
 ![alt text](https://github.com/joshuahwfwEE/pcam_csi_system/blob/main/csitx_hs_ila.png?raw=true)  
 
+the period between txrequesths and txreadyhs is called " start-up time " which means that   
+start-up time = 2*LPX_TIME + HS_PREPARE_TIME + HS_ZERO_TIME + CDC_DELAY  
+Where HS_PREPARE and HS_ZERO are D-PHY protocol timing parameters and maximum values
+used in the IP. You cannot control theHS_PREPARE and HS_ZERO values as they are
+automatically calculated based on the line rate.  
+CDC_DELAY will be 30 ns + 2 txbyteclkhs.  
+LPX can edit in the ip setting  
+
 
 High-Speed Clock Transmission:  
 Switching the Clock Lane between Clock Transmission and LP Mode A Clock Lane is a unidirectional Lane from Master to Slave In HS mode,   
