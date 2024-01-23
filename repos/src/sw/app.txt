@@ -1,1 +1,0 @@
-src dir contains vitis application project's source code
