@@ -1,6 +1,18 @@
 # pcam_csi_system
 this project use digilent pcam with omni ov5640 as the sensor that is under control over i2c by microblaze, and use xilinx csi rx and tx subsystem to transmit the csi data  
-camera seetining is under 1920x1080x30fhz, csi rx receive raw10 data and transfer to axistream, demoasic ise bayer algorithm trnasfer the raw data to rgb, and gamma lut fix and enhance the color mismatch issue, and then vdma drives the video stream to ddr4 and then read by csi tx for output the csi video data  
+camera seetining is under 1920x1080x30fhz, csi rx receive csi-2 mipi data and transfer to raw10 foramt axistream, demoasic use bayer algorithm transfer the foramt raw10 data into RGB888  
+
+
+and gamma lut is used in gamma correction. according your datatype, gamma lut require the necessary element amount.  
+ex: raw8 require 2^8 = 256 elements in LUT, raw10 require 2^10 =1024 elements in LUT,  
+this project is usinig u16 xgamma10_07[1024] as the lut, which is using γ= 0.7  
+the formula is: postition: xgamma10_07[0][1]  which is calculated as 8 by [(1/1023)^0.7 ] * 1023 ≈ 8    //[(postition/1023)^0.7 ] * 1023 ≈ 8  
+
+and then vdma write video data to line buffer with 32 bit data wdith with a 74.25M pixel clk, and then using 256 brusting size and 64 to ddr4 
+
+
+
+and then vdma drives the video stream to ddr4 and then read by csi tx for output the csi video data  
 
 
 the purpose: to simulate a camera module through fpga to verify if max96717's csi controller can process the mipi data or not.  
