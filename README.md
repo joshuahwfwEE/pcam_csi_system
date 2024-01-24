@@ -18,8 +18,9 @@ CDC_DELAY will be 30 ns + 2 txbyteclkhs.
 
 
 High-Speed Clock Transmission:  
-Switching the Clock Lane between Clock Transmission and LP Mode A Clock Lane is a unidirectional Lane from Master to Slave In HS mode,   
-the clock Lane provides a low-swing, differential DDR clock signal. the Clock Burst always starts and ends with an HS-0 state.  
+Switching the Clock Lane between Clock Transmission and LP Mode  
+A Clock Lane is a unidirectional Lane from Master to Slave In HS mode,the clock Lane provides a low-swing, differential DDR clock signal.  
+the Clock Burst always starts and ends with an HS-0 state.  
 the Clock Burst always contains an even number of transitions  
 
 
